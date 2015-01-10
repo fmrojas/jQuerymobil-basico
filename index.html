@@ -8,10 +8,10 @@
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-    <div data-role='page' id='home'>
+    <div data-role='page' id="home">
     <div data-role='header'>
         <h1>Home<h1>
-        <div dat-role="navbar">
+        <div dat-role='navbar'>
             <ul>
                 <li><a href="#" data-href="#home" class="ui-btn-active">Home</a></li>
                 <li><a href="#" data-href="#buscar" class="">Buscar</a></li>
@@ -25,30 +25,41 @@
     <div data-role='footer'>
     </div>
 </div>
-<div data-role='page' id='buscar'>
+<div data-role='page' id="buscar">
     <div data-role='header'>
-        <h1>usca<h1>
-        <div dat-role="navbar">
+        <h1>Buscar<h1>
+        <div dat-role='navbar'>
             <ul>
-                <li><a href="#" data-href="#home" class="ui-btn-active">Home</a></li>
-                <li><a href="#" data-href="#buscar" class="">Buscar</a></li>
+                <li><a href="#" data-href="#home" class="">Home</a></li>
+                <li><a href="#" data-href="#buscar" class="ui-btn-active">Buscar</a></li>
                 <li><a href="#" data-href="#grito" class="">Grito</a></li>
             </ul>
          </div>
     </div>
     <div data-role='content'>
         <h1>Buscar</h1>
+        <fieldset class="ui-grid-a">
+            <div class="ui-block-a">
+                <input type="text" id="cajatexto">
+            </div>
+            <div class="ui-block-b">
+                <a id="botonbuscar" href="#" data-role="button" data-icon="check" data-inline="true">Buscar</a>
+            </div>
+        </fieldset>
+    </div>
+</fieldset>
     </div>
     <div data-role='footer'>
     </div>
-</div>div data-role='page' id='grito'>
+</div>
+<div data-role='page' id="grito">
     <div data-role='header'>
         <h1>Grito<h1>
-        <div dat-role="navbar">
+        <div dat-role='navbar'>
             <ul>
-                <li><a href="#" data-href="#home" class="ui-btn-active">Home</a></li>
+                <li><a href="#" data-href="#home" class="">Home</a></li>
                 <li><a href="#" data-href="#buscar" class="">Buscar</a></li>
-                <li><a href="#" data-href="#grito" class="">Grito</a></li>
+                <li><a href="#" data-href="#grito" class="ui-btn-active">Grito</a></li>
             </ul>
          </div>
     </div>
@@ -59,4 +70,14 @@
     </div>
 </div>
 </body>
+<script>
+    $('[data-role=navbar] a').on('click', function(){
+        $.mobile.changePage($(this).attr('data-href'));
+    });
+</script>
+<script>
+    $('#grito').on('pageshow', function(){
+    alert('Ay!');
+    });
+</script>
 </html>
