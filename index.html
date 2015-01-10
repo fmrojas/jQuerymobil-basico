@@ -89,4 +89,27 @@
     alert('Ay!');
     });
 </script>
+<script>
+    $('#botonbuscar').on('click', function(){
+        var buscar = $('#cajatexto').val();
+        $('#botonbuscar').addClass('ui-disabled');
+        $('#mensajes').html('Buscando '+buscar+' en Internet');
+            setTimeout(function(){
+                var res = [
+                'Javascript Avanzado',
+                'Aprendiendo Javascript',
+                'Closures for Dummies',
+                '¿Qué es un Mixin, mami?',
+                'RFTM: The Good Parts',
+                ];
+                $('#mensajes').html('Se encontraron '+res.length+' resultados sobre '+buscar);
+                $('#botonbuscar').removeClass('ui-disabled');
+                $('[data-role=listview]').html('');
+                $.each(res, function(i, elem){
+                    $('#listado').append('<li><a href="#">'+elem+'</a></li>');
+                    });
+                $('#listado').listview('refresh');
+            }, 2000);
+    });
+</script>
 </html>
